@@ -1,0 +1,85 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+}
+
+.clear {
+  clear: both;
+}
+
+.services,
+.team {
+  text-align: center;
+}
+
+.services .separator {
+  background-color: #dbdbdb;
+}
+
+.services .separator .s-cols {
+  display: inline-block;
+  width: 10%;
+  height: auto;
+  margin: 40px 6% 40px 6%;
+}
+
+.team .crew {
+  width: 100%;
+  height: 100%;
+}
+
+.team .crew .avatar {
+  padding: 20px 0;
+  height: 100%;
+}
+
+.team .crew:nth-child(odd) .avatar {
+  float: left;
+  width: 50%;
+}
+
+.team .crew:nth-child(odd) .introduce {
+  float: right;
+  width: 50%;
+  height: 100%;
+}
+
+/* .team .crew:nth-child(odd) .introduce .power {
+  position: relative;
+  bottom: -83px;
+} */
+
+.team .crew:nth-child(even) .avatar {
+  float: right;
+  width: 50%;
+}
+
+.team .crew:nth-child(even) .introduce {
+  float: left;
+  width: 50%;
+}
+
+/* .team .crew:nth-child(even) .introduce .power {
+  position: relative;
+  bottom: -83px;
+} */
+
+.news {
+  text-align: center;
+}
+
+.news .news-trends .n-cols {
+  display: inline-block;
+  width: 20%;
+  height: 100%;
+  margin: 40px 10px;
+}
+
+.news .news-trends .n-cols img {
+  width: 100%;
+  height: 100%;
+}

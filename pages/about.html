@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>关于我们</title>
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/assets/css/global.css">
+  <link rel="stylesheet" href="/assets/css/about.css">
+  <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
+
+  <script src="/assets/js/jquery.js"></script>
+  <script src="/assets/js/main.js"></script>
+  <script src="https://unpkg.com/swiper/js/swiper.min.js"> </script>
+</head>
+
+<body>
+  <header>
+    <div class="wrapper">
+      <div class="logo">
+        <a href="/index.html"><img src="/assets/images/logo.png" alt=""></a>
+      </div>
+
+      <nav>
+        <ul>
+          <li><a href="/index.html">首页</a></li>
+          <li><a href="/pages/news.html">新闻</a></li>
+          <li><a href="/pages/about.html">关于我们</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+  <section>
+    <div class="about">
+      <div class="title">
+        <h2>关于我们</h2>
+      </div>
+      <div class="content wrapper">
+        <div id="container" class="map">
+        </div>
+        <div class="introduce">
+          <div class="info">
+            这是一个介绍，这是一个介绍，这是一个介绍，这是一个介绍，这是一个介绍，这是一个介绍，这是一个介绍，这是一个介绍，这是一个介绍，这是一个介绍，这是一个介绍，这是一个介绍，这是一个介绍，这是一个介绍，这是一个介绍，这是一个介绍，这是一个介绍，这是一个介绍，这是一个介绍，这是一个介绍，这是一个介绍，这是一个介绍，这是一个介绍。
+          </div>
+          <ul>
+            <li>
+              <img src="/assets/images/footer/map.png" alt="">
+              <span>福州市仓山区橘园创意广场</span>
+            </li>
+            <li>
+              <img src="/assets/images/footer/email.png" alt="">
+              <span>934879001qq.com</span>
+            </li>
+            <li>
+              <img src="/assets/images/footer/customer.png" alt="">
+              <span>110-110-110</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrapper">
+      <div class="footer-widget">
+        <div class="f-cols">
+          <a href="/pages/about.html"><img src="/assets/images/footer/map.png" alt=""></a>
+          <p>福州市仓山区橘园创意广场</p>
+        </div>
+        <div class="f-cols">
+          <a href="#"><img src="/assets/images/footer/email.png" alt=""></a>
+          <p>934879001qq.com</p>
+        </div>
+        <div class="f-cols">
+          <a href="tel:110-110-110"><img src="/assets/images/footer/customer.png" alt=""></a>
+          <p>110-110-110</p>
+        </div>
+        <div class="f-cols">
+          <a href="#"><img src="/assets/images/footer/home.png" alt=""></a>
+          <p>扫一扫，获取最新资讯</p>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>© 2019 Ethan - All Rights Reserved </p>
+      </div>
+    </div>
+  </footer>
+
+  <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.15&key=573f3f3912f35a3124c6634249b7d741">
+  </script>
+  <!-- <script type="text/javascript" src="http://api.map.baidu.com/api?v=3.0&ak=DvUNpfbVLq4CksYdMYfj26Y2vi0SGxR7"></script> -->
+  <script>
+    $(document).ready(function () {
+
+      // 高德
+      var mapObj = new AMap.Map('container');
+      mapObj.plugin('AMap.Geolocation', function () {
+        geolocation = new AMap.Geolocation({
+          enableHighAccuracy: true, //是否使用高精度定位，默认:true
+          timeout: 10000, //超过10秒后停止定位，默认：无穷大
+          maximumAge: 0, //定位结果缓存0毫秒，默认：0
+          convert: true, //自动偏移坐标，偏移后的坐标为高德坐标，默认：true
+          showButton: true, //显示定位按钮，默认：true
+          buttonPosition: 'LB', //定位按钮停靠位置，默认：'LB'，左下角
+          buttonOffset: new AMap.Pixel(10, 20), //定位按钮与设置的停靠位置的偏移量，默认：Pixel(10, 20)
+          showMarker: true, //定位成功后在定位到的位置显示点标记，默认：true
+          showCircle: true, //定位成功后用圆圈表示定位精度范围，默认：true
+          panToLocation: true, //定位成功后将定位到的位置作为地图中心点，默认：true
+          zoomToAccuracy: true //定位成功后调整地图视野范围使定位位置及精度范围视野内可见，默认：false
+        });
+        mapObj.addControl(geolocation);
+        geolocation.getCurrentPosition();
+        AMap.event.addListener(geolocation, 'complete', onComplete); //返回定位信息
+        AMap.event.addListener(geolocation, 'error', onError); //返回定位出错信息
+      });
+
+      // 百度
+      // var map = new BMap.Map("container");
+      // var point = new BMap.Point(116.331398, 39.897445);
+      // map.centerAndZoom(point, 12);
+
+      // var geolocation = new BMap.Geolocation();
+      // geolocation.getCurrentPosition(function (r) {
+      //   if (this.getStatus() == BMAP_STATUS_SUCCESS) {
+      //     var mk = new BMap.Marker(r.point);
+      //     map.addOverlay(mk);
+      //     map.panTo(r.point);
+      //     alert('您的位置：' + r.point.lng + ',' + r.point.lat);
+      //   } else {
+      //     alert('failed' + this.getStatus());
+      //   }
+      // });
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+.about .introduce ul,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+}
+
+.clear {
+  clear: both;
+}
+
+.about .title {
+  width: 100%;
+  text-align: center;
+}
+
+.about .content {
+  position: relative;
+}
+
+.about .map,
+.about .introduce {
+  display: inline-block;
+  width: 47%;
+  margin: 20px 20px;
+  height: 300px;
+}
+
+.about .introduce {
+  position: absolute;
+}
+
+.about .introduce li {
+  list-style: none;
+  height: 58px;
+  line-height: 50px;
+  position: relative;
+}
+
+.about .introduce li:first-child {
+  margin-top: 20px;
+}
+
+.about .introduce li img {
+  width: 8%;
+  height: 80%;
+}
+
+.about .introduce li span {
+  position: absolute;
+  margin-left: 15px;
+}

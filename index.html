@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Ethan | First web project</title>
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/assets/css/global.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
+
+  <script src="/assets/js/jquery.js"></script>
+  <script src="/assets/js/main.js"></script>
+  <script src="https://unpkg.com/swiper/js/swiper.min.js"> </script>
+</head>
+
+<body>
+  <header>
+    <div class="wrapper">
+      <div class="logo">
+        <a href="/index.html"><img src="/assets/images/logo.png" alt=""></a>
+      </div>
+
+      <nav>
+        <ul>
+          <li><a href="/index.html">首页</a></li>
+          <li><a href="/pages/news.html">新闻</a></li>
+          <li><a href="/pages/about.html">关于我们</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+  <section class="banner">
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><a href="#"><img src="/assets/images/banner/banner1.jpg" alt=""></a></div>
+        <div class="swiper-slide"><a href="#"><img src="/assets/images/banner/banner2.jpg" alt=""></a></div>
+        <div class="swiper-slide"><a href="#"><img src="/assets/images/banner/banner3.jpg" alt=""></a></div>
+        <div class="swiper-slide"><a href="#"><img src="/assets/images/banner/banner4.jpg" alt=""></a></div>
+        <div class="swiper-slide"><a href="#"><img src="/assets/images/banner/banner5.jpg" alt=""></a></div>
+        <div class="swiper-slide"><a href="#"><img src="/assets/images/banner/banner6.jpg" alt=""></a></div>
+        <div class="swiper-slide"><a href="#"><img src="/assets/images/banner/banner7.jpg" alt=""></a></div>
+        <div class="swiper-slide"><a href="#"><img src="/assets/images/banner/banner8.jpg" alt=""></a></div>
+      </div>
+
+      <!-- 如果需要分页器 -->
+      <div class="swiper-pagination"></div>
+
+      <!-- 如果需要导航按钮 -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+
+    </div>
+  </section>
+
+  <section class="services wrapper">
+    <h2>服务范围</h2>
+    <div class="separator">
+      <div class="s-cols">
+        <a href="#"><img src="/assets/images/services/save.png" alt=""></a>
+        <p>拯救地球</p>
+      </div>
+      <div class="s-cols">
+        <a href="#"><img src="/assets/images/services/people.png" alt=""></a>
+        <p>英雄合照</p>
+      </div>
+      <div class="s-cols">
+        <a href="#"><img src="/assets/images/services/shield.png" alt=""></a>
+        <p>寻找原石</p>
+      </div>
+      <div class="s-cols">
+        <a href="#"><img src="/assets/images/services/travel.png" alt=""></a>
+        <p>宇宙旅行</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="team wrapper">
+    <h2>团队介绍</h2>
+    <div class="crews"></div>
+  </section>
+
+  <section class="news wrapper">
+    <h2>新闻动态</h2>
+    <div class="news-trends">
+      <!-- <div class="n-cols">
+        <a href="/pages/news-detail.html?id=1"><img src="/assets/images/footer/map.png" alt=""></a>
+        <a href="/pages/news-detail.html?id=1">title</a>
+        <p>content</p>
+      </div> -->
+    </div>
+  </section>
+
+
+  <footer>
+    <div class="wrapper">
+      <div class="footer-widget">
+        <div class="f-cols">
+          <a href="/pages/about.html"><img src="/assets/images/footer/map.png" alt=""></a>
+          <p>福州市仓山区橘园创意广场</p>
+        </div>
+        <div class="f-cols">
+          <a href="#"><img src="/assets/images/footer/email.png" alt=""></a>
+          <p>934879001qq.com</p>
+        </div>
+        <div class="f-cols">
+          <a href="tel:110-110-110"><img src="/assets/images/footer/customer.png" alt=""></a>
+          <p>110-110-110</p>
+        </div>
+        <div class="f-cols">
+          <a href="#"><img src="/assets/images/footer/home.png" alt=""></a>
+          <p>扫一扫，获取最新资讯</p>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>© 2019 Ethan - All Rights Reserved </p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    $(document).ready(function () {
+      var mySwiper = new Swiper('.swiper-container', {
+        // direction: 'vertical', // 垂直切换选项
+        loop: true, // 循环模式选项
+
+        // 如果需要分页器
+        pagination: {
+          el: '.swiper-pagination',
+          dynamicBullets: true,
+        },
+
+        // 如果需要前进后退按钮
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+
+        spaceBetween: 30,
+        effect: 'coverflow',
+        autoplay: {
+          delay: 3000,
+          stopOnLastSlide: false,
+          disableOnInteraction: true,
+        }
+      });
+
+      // 获取成员数据
+      $.ajax({
+        type: 'GET',
+        url: 'https://5dc566660bbd050014fb89bb.mockapi.io/api/v1/crews',
+        dataType: 'json',
+        success: function (data) {
+          $('.crews').empty();
+          var html = '';
+          $.each(data, function (index, item) {
+            html += '<div class="crew">' +
+              '<div class = "avatar" >' +
+              '<img src = "' + item.avatar + '" alt = "">' +
+              '</div>' +
+              '<div class = "introduce" >' +
+              '<h4> ' + item.name + '</h4>' +
+              '<p class = "desc" >' + item.desc + '</p>' +
+              '<p class = "power" > ' + item.power + '</p>' +
+              '</div> <div class = "clear"> </div> </div >';
+          });
+          $('.crews').html(html);
+        }
+      });
+
+      // 新闻数据
+      $.ajax({
+        type: 'GET',
+        url: 'https://5dc566660bbd050014fb89bb.mockapi.io/api/v1/news',
+        dataType: 'json',
+        success: function (data) {
+          $('.news-trends').empty();
+          var html = '';
+          var news = data.slice(0, 4);
+          $.each(news, function (index, item) {
+            html += '<div class="n-cols"> ' + '<a href="./pages/news-detail.html?id=' + item.id + '">' +
+              '<img src="' + item.thumb + '" alt=""></a>' +
+              '<p><a href="./pages/news-detail.html?id=' + item.id + '"><h4>' + item.title +
+              '</h4></a></p>' + '<p>' +
+              item.content + '</p></div>';
+          });
+          $('.news-trends').html(html);
+        }
+      });
+    })
+  </script>
+</body>
+
+</html>
